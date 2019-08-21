@@ -2,7 +2,8 @@ import java.util.ArrayList;
 
 public class Level {
 
-    public ArrayList<GameElements> activeElements = new ArrayList<GameElements>();
+    public ArrayList<GameElements> activeElements = new ArrayList<>();
+    public ArrayList<Bullet> projectiles = new ArrayList<>();
     public int number;
 
     public Level(){

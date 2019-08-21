@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public /*abstract*/ class GameElements {
+public abstract class GameElements {
     public double x;
     public double y;
     public double x2;
@@ -90,7 +90,9 @@ public /*abstract*/ class GameElements {
         this.frameCycle = frameCycle;
     }
 
-    //public abstract void paint(Graphics g);
+    public abstract void paint(Graphics g);
+    public abstract void Collision(Character p, GamePanel gp);
+    public abstract void Collision(Bullet b, GamePanel gp);
 
 
     public void move(int t){

@@ -1,5 +1,7 @@
-public class Bullet extends GameElements {
+import java.awt.*;
 
+public class Bullet extends GameElements {
+    private final Color PLASMA = new Color(30, 255, 40);
     public Bullet(){
         super();
     }
@@ -19,9 +21,22 @@ public class Bullet extends GameElements {
         SIZE = 10;
     }
 
+    @Override
+    public void paint(Graphics g) {
+        g.setColor(PLASMA);
+        g.fillRect((int) (x - SIZE / 2), (int) (y - SIZE / 2), SIZE, SIZE);
 
+    }
 
+    @Override
+    public void Collision(Bullet b, GamePanel gp) {
 
+    }
+
+    @Override
+    public void Collision(Character p, GamePanel gp) {
+
+    }
 
 
 }

@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ public class Character {
     public final int SIZE = 50;
     public double slope;
     public double internalCD = 0;
+    private final Color PLAYERCOLOR = Color.red;
 
     public ArrayList<Gun> inventory = new ArrayList<Gun>();
     public Gun equipedGun = null;
@@ -129,6 +131,18 @@ public class Character {
         if (internalCD > 0){
             internalCD--;
         }
+    }
+    public void pushBack(){
+        x -= velx / 100;
+        y -= vely / 100;
+        velx = -1.0 * velx;
+        vely = -1.0 * vely;
+    }
+
+
+    public void paint(Graphics g) {
+        g.setColor(PLAYERCOLOR);
+        g.fillRect((int) (x - SIZE / 2), (int) (y - SIZE / 2), SIZE, SIZE);
     }
 }
 
