@@ -18,7 +18,7 @@ public abstract class GameElements {
     public String movingMethod;
     public boolean isMoving;
     public int health;
-    public Trigger[] triggers = new Trigger[3];
+    public Trigger trigger;
     public boolean toDiscard = false;
     // used for direction vector
     private double dx;
@@ -148,16 +148,19 @@ public abstract class GameElements {
         vely = (scalingFactor * dy * 100.0);
     }
 
-    public void doTriggerAction(Trigger t){
-        switch (t.action) {
+    public void doTriggerAction(){
+        System.out.println("do trigger action launched");
+        switch (trigger.action) {
             case "toDiscard":
+                System.out.println("to discard activated");
                 toDiscard = true;
                 break;
-            case"Tansform":
+            case"Transform":
                 break;
 
             case "None":
                 break;
+
         }
     }
 }

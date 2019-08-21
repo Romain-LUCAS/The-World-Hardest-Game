@@ -23,15 +23,20 @@ public class Level {
         else if (lvl == 2){
             loadLevel2();
         }
+        else if(lvl == 3){
+            loadLevel3();
+        }
     }
     public void loadEventX(String event){
         switch (event){
             case "event2_1":
                 loadEvent2_1();
                 break;
-
+            case "event 2.2":
+                loadEvent2_2();
         }
     }
+
     public void loadLevel0(){
         activeElements.clear();
         Enemy enemy1 = new Enemy(84,32);
@@ -102,6 +107,9 @@ public class Level {
     }
     public void loadLevel2(){
         activeElements.clear();
+
+        Enemy enemy1 = new Enemy(700,700);
+
         Wall wall1 = new Wall(0,0,0,800);
         Wall wall2 = new Wall(0,800,800,800);
         Wall wall3 = new Wall(0,0,800,0);
@@ -112,13 +120,14 @@ public class Level {
         Wall wall6 = new Wall(350,350,450,350);
         Wall wall7 = new Wall(350,450,450,450);
         Wall wall8 = new Wall(450,350,450,450);
+        Trigger trigger2 = new Trigger(685, 685, 15,15, true,"toDiscard");
+        wall7.trigger = trigger2;
+
+
         Trigger trigger1 = new Trigger(394,294,15,15,false,"event2_1");
         Checkpoint checkpoint1 = new Checkpoint(351,351,99,99);
 
 
-
-
-        Enemy enemy1 = new Enemy(700,700);
 
         Gun plasmaGun = new Gun(400,300);
 
@@ -131,15 +140,19 @@ public class Level {
         activeElements.add(wall7);
         activeElements.add(wall8);
         activeElements.add(trigger1);
+        activeElements.add(trigger2);
         activeElements.add(checkpoint1);
-        activeElements.add(enemy1);
         activeElements.add(plasmaGun);
+        activeElements.add(enemy1);
+    }
+    public void loadLevel3(){
+        activeElements.clear();
     }
 
     public void loadEvent2_1(){
-        Enemy enemy2 = new Enemy(200,600);
-        enemy2.setMotion("moveLinear",200,400.0,400.0);
-        activeElements.add(enemy2);
+
+    }
+    public void loadEvent2_2(){
 
     }
 }

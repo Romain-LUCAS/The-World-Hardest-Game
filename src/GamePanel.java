@@ -15,7 +15,7 @@ public class GamePanel extends JPanel {
     public Character bob = new Character(0, 0);
     private Handler2 keyHandler = new Handler2();
     public Timer time = new Timer(17, new Handler1());
-    public int level = 1;
+    public int level = 2;
     public Level currentLevel = new Level(level);
     int t = 0;
 
@@ -100,13 +100,17 @@ public class GamePanel extends JPanel {
                 currentLevel.loadEventX(t.action);
                 removeActiveElements(t);
             }
+        }else{
+            if (e.trigger != null && e.trigger.isActivated) {
+                e.doTriggerAction();
+            }
         }
     }
     public void checkOoB(GameElements e){
     }
 
     public void checkToDiscard(GameElements e){
-        if (e.toDiscard == true){
+        if (e.toDiscard){
             currentLevel.activeElements.remove(currentLevel.activeElements.indexOf(e));
         }
     }
