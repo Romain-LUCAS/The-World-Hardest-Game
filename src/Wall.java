@@ -64,18 +64,14 @@ public class Wall extends GameElements {
 
             //closest point calculated
             if (dx == 0.0) {
-                return (x2 > -p.SIZE / 2.0 && x2 < p.SIZE / 2.0) {
-                }
+                return (x2 > -p.SIZE / 2.0 && x2 < p.SIZE / 2.0);
             } else if (dy == 0.0) {
-                return (y2 > -p.SIZE / 2.0 && y2 < p.SIZE / 2.0) {
-                    return true;
-                }
+                return (y2 > -p.SIZE / 2.0 && y2 < p.SIZE / 2.0);
             } else {
                 double cx = (-c / dx) / (dy / dx + dx / dy);
                 double cy = -dx / dy * cx;
                 double u = Methods.distanceBetweenPoints(cx, cy, 0, 0);
-                return (u < Math.sqrt(p.SIZE * p.SIZE / 2)) {
-                }
+                return (u < Math.sqrt(p.SIZE * p.SIZE / 2));
             }
         } return false;
     }
