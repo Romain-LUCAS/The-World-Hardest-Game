@@ -9,22 +9,13 @@ import java.awt.event.*;
 
 public class GamePanel extends JPanel {
 
-
-
-
-
-
-
-
-
-
     private double targetX;
     private double targetY;
 
     public Character bob = new Character(0, 0);
     private Handler2 keyHandler = new Handler2();
     public Timer time = new Timer(17, new Handler1());
-    public int level = 2;
+    public int level = 1;
     public Level currentLevel = new Level(level);
     int t = 0;
 
@@ -57,8 +48,9 @@ public class GamePanel extends JPanel {
 
 
     public void checkCollision(Character p, GameElements e) {
-        e.Collision(p,this);
+        e.Collision(p, this);
     }
+
     public void checkBulletCollision(Bullet b, GameElements e){
         if (e.getClass().getName().equals("Wall")) {
             // we imagine a graph with point (0,0) the bullet
@@ -119,13 +111,10 @@ public class GamePanel extends JPanel {
         }
     }
 
-
     public double distanceBetweenLine(double dx, double dy, double x1, double y1) {
         double c = -(dx * x1 + dy * y1);
         return (Math.abs(dx * x1 + dy * y1 + c) / Math.sqrt(dx * dx + dy * dy));
     }
-
-
 
     public void pushAway(Character p) {
         p.x -= p.velx / 100;
@@ -153,9 +142,7 @@ public class GamePanel extends JPanel {
         checkTriggers(e);
         checkOoB(e);
         checkToDiscard(e);
-
     }
-
 
     private class Handler1 implements ActionListener {
         @Override
@@ -178,7 +165,7 @@ public class GamePanel extends JPanel {
                 for (int i = 0; i < currentLevel.projectiles.size(); i++) {
                     Bullet b = currentLevel.projectiles.get(i);
                     for (int j = 0; j < currentLevel.activeElements.size(); j++) {
-                    checkBulletCollision(b, currentLevel.activeElements.get(j));
+                        checkBulletCollision(b, currentLevel.activeElements.get(j));
                     }
                 }
                 for (int i = 0; i < currentLevel.activeElements.size(); i++) {

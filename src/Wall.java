@@ -40,6 +40,7 @@ public class Wall extends GameElements {
     @Override
     public void Collision(Character p, GamePanel gp) {
         if (isColliding(p)) {
+            System.out.println("collision");
             p.pushBack();
         }
     }
@@ -55,26 +56,25 @@ public class Wall extends GameElements {
         double y1 = y - p.y;
         double x2 = this.x2 - p.x;
         double y2 = this.y2 - p.y;
-        double dx = x2 - x;
-        double dy = y2 - y;
+        double dx = x2 - x1;
+        double dy = y2 - y1;
         double c = -(dy * x2 - dx * y2);
 
         if ((x1 - p.SIZE / 2.0) * (x2 + p.SIZE / 2.0) < 0 && (y1 - p.SIZE / 2.0) * (y2 + p.SIZE / 2.0) < 0) {
+
             //closest point calculated
             if (dx == 0.0) {
-                if (x2 > -p.SIZE / 2.0 && x2 < p.SIZE / 2.0) {
-                    return true;
+                return (x2 > -p.SIZE / 2.0 && x2 < p.SIZE / 2.0) {
                 }
             } else if (dy == 0.0) {
-                if (y2 > -p.SIZE / 2.0 && y2 < p.SIZE / 2.0) {
+                return (y2 > -p.SIZE / 2.0 && y2 < p.SIZE / 2.0) {
                     return true;
                 }
             } else {
                 double cx = (-c / dx) / (dy / dx + dx / dy);
                 double cy = -dx / dy * cx;
                 double u = Methods.distanceBetweenPoints(cx, cy, 0, 0);
-                if (u < Math.sqrt(p.SIZE * p.SIZE / 2)) {
-                    return true;
+                return (u < Math.sqrt(p.SIZE * p.SIZE / 2)) {
                 }
             }
         } return false;
